@@ -11,7 +11,7 @@
 			"compaction": {
 				"mode": "safeguard"
 			},
-			"workspace": "/home/mlibre/.openclaw/workspace",
+			"workspace": "./workspace",
 			"model": {
 				"primary": "localai/mymodel"
 			},
@@ -23,8 +23,8 @@
 	"models": {
 		"providers": {
 			"localai": {
-				"baseUrl": "env:MODEL_BASE_URL",
-				"apiKey": "env:MODEL_API_KEY",
+				"baseUrl": "${MODEL_BASE_URL}",
+				"apiKey": "${MODEL_API_KEY}",
 				"api": "openai-completions",
 				"models": [
 					{
@@ -39,7 +39,7 @@
 		"mode": "local",
 		"auth": {
 			"mode": "password",
-			"password": "env:OPENCLAW_GATEWAY_PASSWORD"
+			"password": "${OPENCLAW_GATEWAY_PASSWORD}"
 		},
 		"controlUi": {
 			"allowInsecureAuth": true,
@@ -72,7 +72,7 @@
 	"channels": {
 		"telegram": {
 			"enabled": true,
-			"botToken": "env:OPENCLAW_TELEGRAM_TOKEN",
+			"botToken": "${OPENCLAW_TELEGRAM_TOKEN}",
 			"dmPolicy": "open",
 			"allowFrom": [
 				"*"
@@ -139,15 +139,5 @@
 				}
 			}
 		}
-	},
-	"wizard": {
-		"lastRunAt": "2026-02-12T16:31:53.392Z",
-		"lastRunVersion": "2026.2.9",
-		"lastRunCommand": "onboard",
-		"lastRunMode": "local"
-	},
-	"meta": {
-		"lastTouchedVersion": "2026.2.9",
-		"lastTouchedAt": "2026-02-12T16:31:53.399Z"
 	}
 }
