@@ -41,7 +41,6 @@ OpenClaw is an AI-powered automation tool that provides a web interface for inte
    | `MODEL_API_KEY`                 | `provider-api-key`   | AI Provider API token         |
    | `MODEL_BASE_URL`                | `provider-base-url`  | AI Provider Base URL          |
    | `OPENCLAW_TELEGRAM_TOKEN`       | `telegram-bot-token` | Telegram Bot (optional)       |
-   | `PORT`                          | `8080`               | Port to run the service       |
    | `OPENCLAW_STATE_DIR` (optional) | `/var/data`          | Where to save sessions/logins |
 
 ## 🎮 Usage
