@@ -45,7 +45,6 @@
 			"allowInsecureAuth": true,
 			"enabled": true
 		},
-		"port": "${PORT}",
 		"bind": "lan",
 		"trustedProxies": [
 			"127.0.0.1",
