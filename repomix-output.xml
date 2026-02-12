@@ -1,0 +1,277 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+openclaw.json
+package.json
+README.md
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="openclaw.json">
+{
+	"messages": {
+		"ackReactionScope": "group-mentions"
+	},
+	"agents": {
+		"defaults": {
+			"maxConcurrent": 4,
+			"subagents": {
+				"maxConcurrent": 8
+			},
+			"compaction": {
+				"mode": "safeguard"
+			},
+			"workspace": "/home/mlibre/.openclaw/workspace",
+			"model": {
+				"primary": "localai/mymodel"
+			},
+			"models": {
+				"localai/mymodel": {}
+			}
+		}
+	},
+	"models": {
+		"providers": {
+			"localai": {
+				"baseUrl": "env:MODEL_BASE_URL",
+				"apiKey": "env:MODEL_API_KEY",
+				"api": "openai-completions",
+				"models": [
+					{
+						"id": "local model",
+						"name": "Local AI Model"
+					}
+				]
+			}
+		}
+	},
+	"gateway": {
+		"mode": "local",
+		"auth": {
+			"mode": "password",
+			"password": "env:OPENCLAW_GATEWAY_PASSWORD"
+		},
+		"controlUi": {
+			"allowInsecureAuth": true,
+			"enabled": true
+		},
+		"port": 8080,
+		"bind": "loopback",
+		"tailscale": {
+			"mode": "funnel",
+			"resetOnExit": true
+		},
+		"nodes": {
+			"denyCommands": [
+				"camera.snap",
+				"camera.clip",
+				"screen.record",
+				"calendar.add",
+				"contacts.add",
+				"reminders.add"
+			]
+		}
+	},
+	"plugins": {
+		"entries": {
+			"telegram": {
+				"enabled": true
+			}
+		}
+	},
+	"channels": {
+		"telegram": {
+			"enabled": true,
+			"botToken": "env:OPENCLAW_TELEGRAM_TOKEN",
+			"dmPolicy": "open",
+			"allowFrom": [
+				"*"
+			],
+			"groupPolicy": "open",
+			"groupAllowFrom": [
+				"*"
+			],
+			"groups": {
+				"*": {
+					"requireMention": false,
+					"groupPolicy": "open"
+				}
+			},
+			"commands": {
+				"native": "auto"
+			},
+			"streamMode": "partial",
+			"draftChunk": {
+				"minChars": 200,
+				"maxChars": 800,
+				"breakPreference": "paragraph"
+			},
+			"blockStreaming": false,
+			"textChunkLimit": 4000,
+			"chunkMode": "newline",
+			"linkPreview": true,
+			"mediaMaxMb": 5,
+			"historyLimit": 50,
+			"dmHistoryLimit": 100,
+			"replyToMode": "first",
+			"reactionNotifications": "all",
+			"reactionLevel": "extensive",
+			"configWrites": true,
+			"capabilities": {
+				"inlineButtons": "all"
+			},
+			"actions": {
+				"sendMessage": true,
+				"editMessage": true,
+				"deleteMessage": true,
+				"reactions": true,
+				"sticker": true
+			}
+		}
+	},
+	"skills": {
+		"install": {
+			"nodeManager": "npm"
+		}
+	},
+	"hooks": {
+		"internal": {
+			"enabled": true,
+			"entries": {
+				"session-memory": {
+					"enabled": true
+				},
+				"command-logger": {
+					"enabled": true
+				},
+				"boot-md": {
+					"enabled": true
+				}
+			}
+		}
+	},
+	"wizard": {
+		"lastRunAt": "2026-02-12T16:31:53.392Z",
+		"lastRunVersion": "2026.2.9",
+		"lastRunCommand": "onboard",
+		"lastRunMode": "local"
+	},
+	"meta": {
+		"lastTouchedVersion": "2026.2.9",
+		"lastTouchedAt": "2026-02-12T16:31:53.399Z"
+	}
+}
+</file>
+
+<file path="package.json">
+{
+	"name": "openclaw-render",
+	"version": "1.0.0",
+	"private": true,
+	"dependencies": {
+		"openclaw": "latest"
+	},
+	"scripts": {
+		"start": "openclaw gateway --host 0.0.0.0 --port $PORT"
+	}
+}
+</file>
+
+<file path="README.md">
+# 🦞 OpenClaw AI Automation Tool
+
+OpenClaw is an AI-powered automation tool that provides a web interface for interacting with AI models through a unified gateway.
+
+## 🚀 Features
+
+- 🤖 Unified AI model gateway
+- 🌐 Web interface with password protection
+- 💬 Telegram integration
+- 📝 Workspace management
+- 🎯 Agent orchestration
+- 🔌 Plugin support
+
+## 📦 Installation
+
+### Prerequisites
+
+- Node.js (16.x or higher)
+- Render.com account
+- AI model provider (e.g., LocalAI)
+- Telegram bot token (optional but recommended)
+
+### Deployment on Render
+
+1. **Create a remote repository** on GitHub or GitLab and push this code
+
+2. **Deploy on Render.com:**
+   - Go to [Render.com](https://render.com) and create a new **Web Service**
+   - Connect your GitHub/GitLab repository
+   - Configure the deployment:
+     - **Runtime:** Node
+     - **Build Command:** `npm install`
+     - **Start Command:** `npm start`
+
+3. **Set Environment Variables:**
+   Add these environment variables in Render's dashboard:
+
+   | Variable                        | Value                | Description                   |
+   | ------------------------------- | -------------------- | ----------------------------- |
+   | `OPENCLAW_GATEWAY_PASSWORD`     | `your_secure_pass`   | Protects your public UI       |
+   | `MODEL_API_KEY`                 | `provider-api-key`   | AI Provider API token         |
+   | `MODEL_BASE_URL`                | `provider-base-url`  | AI Provider Base URL          |
+   | `OPENCLAW_TELEGRAM_TOKEN`       | `telegram-bot-token` | Telegram Bot (optional)       |
+   | `PORT`                          | `8080`               | Port to run the service       |
+   | `OPENCLAW_STATE_DIR` (optional) | `/var/data`          | Where to save sessions/logins |
+
+## 🎮 Usage
+
+Once deployed:
+
+1. Visit your Render service URL
+2. Enter the password you set for `OPENCLAW_GATEWAY_PASSWORD`
+3. Start interacting with AI models through the web interface
+</file>
+
+</files>

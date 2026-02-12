@@ -112,7 +112,6 @@
 			},
 			"actions": {
 				"sendMessage": true,
-				"editMessage": true,
 				"deleteMessage": true,
 				"reactions": true,
 				"sticker": true
