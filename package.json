@@ -6,6 +6,6 @@
 		"openclaw": "latest"
 	},
 	"scripts": {
-		"start": "OPENCLAW_CONFIG_PATH=$(pwd)/openclaw.json openclaw gateway --bind lan --port $PORT"
+		"start": "OPENCLAW_CONFIG_PATH=$(pwd)/openclaw.json openclaw gateway"
 	}
 }
