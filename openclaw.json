@@ -24,7 +24,7 @@
 		"defaults": {
 			"maxConcurrent": 1,
 			"subagents": {
-				"maxConcurrent": 0
+				"maxConcurrent": 1
 			},
 			"compaction": {
 				"mode": "safeguard"
