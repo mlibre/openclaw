@@ -13,13 +13,6 @@ OpenClaw is an AI-powered automation tool that provides a web interface for inte
 
 ## 📦 Installation
 
-### Prerequisites
-
-- Node.js (16.x or higher)
-- Render.com account
-- AI model provider (e.g., LocalAI)
-- Telegram bot token (optional but recommended)
-
 ### Deployment on Render
 
 1. **Create a remote repository** on GitHub or GitLab and push this code
@@ -50,4 +43,3 @@ Once deployed:
 
 1. Visit your Render service URL
 2. Enter the password you set for `OPENCLAW_GATEWAY_PASSWORD`
-3. Start interacting with AI models through the web interface
