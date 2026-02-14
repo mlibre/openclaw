@@ -23,7 +23,6 @@
 	"agents": {
 		"defaults": {
 			"maxConcurrent": 1,
-			"idleMs": 500,
 			"subagents": {
 				"maxConcurrent": 0
 			},
