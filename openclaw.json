@@ -12,6 +12,14 @@
 	"messages": {
 		"ackReactionScope": "group-mentions"
 	},
+	"cron": {
+		"enabled": false
+	},
+	"discovery": {
+		"mdns": {
+			"mode": "off"
+		}
+	},
 	"agents": {
 		"defaults": {
 			"maxConcurrent": 1,
@@ -30,6 +38,7 @@
 				"localai/mymodel": {}
 			},
 			"sandbox": {
+				"mode": "off",
 				"browser": {
 					"enabled": false
 				}
@@ -134,6 +143,9 @@
 		}
 	},
 	"skills": {
+		"load": {
+			"watch": false
+		},
 		"install": {
 			"nodeManager": "npm"
 		}
