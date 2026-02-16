@@ -1,30 +1,12 @@
 {
-	"logging": {
-		"level": "error",
-		"consoleLevel": "error"
-	},
-	"browser": {
-		"enabled": false
-	},
-	"canvasHost": {
-		"enabled": false
-	},
 	"messages": {
 		"ackReactionScope": "group-mentions"
 	},
-	"cron": {
-		"enabled": false
-	},
-	"discovery": {
-		"mdns": {
-			"mode": "off"
-		}
-	},
 	"agents": {
 		"defaults": {
-			"maxConcurrent": 1,
+			"maxConcurrent": 4,
 			"subagents": {
-				"maxConcurrent": 1
+				"maxConcurrent": 8
 			},
 			"compaction": {
 				"mode": "safeguard"
@@ -35,12 +17,6 @@
 			},
 			"models": {
 				"localai/mymodel": {}
-			},
-			"sandbox": {
-				"mode": "off",
-				"browser": {
-					"enabled": false
-				}
 			}
 		}
 	},
@@ -66,7 +42,8 @@
 			"password": "${OPENCLAW_GATEWAY_PASSWORD}"
 		},
 		"controlUi": {
-			"enabled": false
+			"allowInsecureAuth": true,
+			"enabled": true
 		},
 		"bind": "lan",
 		"trustedProxies": [
@@ -122,8 +99,8 @@
 			"blockStreaming": false,
 			"textChunkLimit": 4000,
 			"chunkMode": "newline",
-			"linkPreview": false,
-			"mediaMaxMb": 2,
+			"linkPreview": true,
+			"mediaMaxMb": 5,
 			"historyLimit": 50,
 			"dmHistoryLimit": 100,
 			"replyToMode": "first",
@@ -142,9 +119,6 @@
 		}
 	},
 	"skills": {
-		"load": {
-			"watch": false
-		},
 		"install": {
 			"nodeManager": "npm"
 		}
@@ -157,10 +131,10 @@
 					"enabled": true
 				},
 				"command-logger": {
-					"enabled": false
+					"enabled": true
 				},
 				"boot-md": {
-					"enabled": false
+					"enabled": true
 				}
 			}
 		}
